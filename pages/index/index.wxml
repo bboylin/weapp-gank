@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view>
+
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+
+  <view class="card" wx:for="{{items}}">
+    <image wx:if="{{item.type=='福利'}}" class="image" mode="aspectFill" src="{{item.url}}" />
+    <view wx:else class="title">{{item.desc}}</view>
+  </view>
+
+</view>

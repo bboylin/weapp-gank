@@ -23,27 +23,27 @@ Page({
       icon: "success"
     })
   },
-  refresh: function(){
+  onPullDownRefresh: function(){
     page = 1;
-    console.log('下拉刷新')
-    load(this)
+    console.log('下拉刷新');
+    load(this);
   },
-  loadMore: function(){
-    console.log('加载更多')
-    load(this)
+  onReachBottom: function(){
+    console.log('加载更多');
+    load(this);
   },
   onLoad: function() {
     var that = this;
-    load(that)
+    load(that);
     wx.getSystemInfo({
       success: function(res) {
-        console.log(res)
-        console.log(res.windowHeight)
+        console.log(res);
+        console.log(res.windowHeight);
         that.setData({
           wHeight: res.windowHeight
-        })
+        });
       }
-    })
+    });
   }
 });
 
@@ -71,6 +71,7 @@ function load(that){
           items: res.data.results,
           hidden: true
         });
+        wx.stopPullDownRefresh();
       }else{
         that.setData({
           items: [...that.data.items, ...res.data.results],

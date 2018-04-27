@@ -1,12 +1,10 @@
 <!--index.wxml-->
 <view>
-  <scroll-view scroll-y="true" style="height:{{wHeight}}px;" bindscrolltolower="loadMore" bindscrolltoupper="refresh">
-    <view class="card" wx:for="{{items}}">
-      <image wx:if="{{item.type=='福利'}}" class="image" mode="aspectFill" src="{{item.url}}" bindtap="onImageClick" />
-      <view wx:else class="title" bindtap="onTitleClick">{{item.desc}}</view>
-    </view>
-    <loading hidden="{{hidden}}">
-      加载中...
-    </loading>
-  </scroll-view>
+  <view class="card" wx:for="{{items}}">
+    <image wx:if="{{item.type=='福利'}}" class="image" mode="aspectFill" src="{{item.url}}" bindtap="onImageClick" />
+    <view wx:else class="title" bindtap="onTitleClick">{{item.desc}}</view>
+  </view>
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
 </view>
